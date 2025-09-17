@@ -10,12 +10,12 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="flex flex-row bg-white m-3">
-      <nav className="flex justify-between items-center gap-4">
-        <div>
+    <>
+      <nav className="flex justify-between w-full z-50 fixed shadow-sm bg-white p-3">
+        <div className="p-2">
           <h1>Logo</h1>
         </div>
-        <div className="flex justify-end md:hidden">
+        <div className="flex justify-end md:hidden p-2">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <GiHamburgerMenu />
@@ -28,8 +28,8 @@ const Navbar = () => {
           </DropdownMenu>
         </div>
 
-        <div className="hidden md:flex md:flex-row justify-end">
-          <ul className="flex flex-row">
+        <div className="hidden md:flex md:flex-row justify-end p-2 mr-12">
+          <ul className="flex flex-row gap-18">
             <li>
               <Link href="/appointments">Book Appointment</Link>
             </li>
@@ -42,7 +42,7 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

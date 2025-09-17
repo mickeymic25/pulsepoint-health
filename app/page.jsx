@@ -28,7 +28,7 @@ export default function Home() {
           outstanding healthcare for better lives.
         </p>
       </section>
-      <section className=" bg-blue-50 p-5">
+      <section className=" bg-blue-50 p-5 border-t-8 border-t-blue-700">
         <h1 className="text-5xl flex flex-row justify-center">Our Services</h1>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
           {hospitalServices.map((service, index) => {
