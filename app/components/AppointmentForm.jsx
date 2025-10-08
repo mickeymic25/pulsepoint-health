@@ -22,14 +22,14 @@ import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 const AppointmentForm = () => {
-  const [date, setDate] = React.useState(new Date());
   const [open, setOpen] = useState(false);
   const form = useForm({
-    defaultValues: { name: "", email: "", number: "", message: "" },
+    defaultValues: { name: "", email: "", number: "", date: null, message: "" },
+    mode: "onTouched",
   });
 
-  const onAppointmentSubmission = () => {
-    console.log();
+  const onAppointmentSubmission = (data) => {
+    console.log(`Submitted details: ${data}`);
   };
   return (
     <Form {...form}>
@@ -76,6 +76,11 @@ const AppointmentForm = () => {
         <FormField
           name="date"
           control={form.control}
+          rules={{
+            required: "Please select a date",
+            validate: (value) =>
+              (value && value >= new Date()) || "Date must be today or later",
+          }}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Date</FormLabel>
@@ -88,17 +93,19 @@ const AppointmentForm = () => {
                       className="w-48
                       justify-between font-normal"
                     >
-                      {date ? date.toLocaleDateString() : "Select a Date"}
-                      {/*error message for when a date in the past has been chosen*/}
+                      {field.value
+                        ? field.value.toLocaleDateString()
+                        : "Select a Date"}
+
                       <ChevronDown />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent>
                     <Calendar
                       mode="single"
-                      selected={date}
-                      onSelect={(date) => {
-                        setDate(date);
+                      selected={field.value}
+                      onSelect={(newDate) => {
+                        field.onChange(newDate);
                         setOpen(false);
                       }}
                       className="rounded-md border shadow-sm"
@@ -118,7 +125,7 @@ const AppointmentForm = () => {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="message" />
+                <Textarea {...field} placeholder="message" />
               </FormControl>
               <FormMessage />
             </FormItem>
