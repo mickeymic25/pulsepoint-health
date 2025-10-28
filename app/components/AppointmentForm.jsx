@@ -1,4 +1,5 @@
 "use client";
+//add dialog
 
 import {
   Popover,
@@ -29,7 +30,7 @@ const AppointmentForm = () => {
   });
 
   const onAppointmentSubmission = (data) => {
-    console.log(`Submitted details: ${data}`);
+    localStorage.setItem("appointmentData", JSON.stringify(data));
   };
   return (
     <Form {...form}>

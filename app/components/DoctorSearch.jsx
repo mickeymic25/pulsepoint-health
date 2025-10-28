@@ -12,9 +12,7 @@ import {
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -188,7 +186,7 @@ const DoctorSearch = ({ doctors }) => {
         (filteredDoctors.length ? (
           <div className="grid grid-cols-1">
             {filteredDoctors.map((doctorsCard, index) => (
-              <DoctorCard key={index} physician={doctorsCard} />
+              <DoctorCard key={index} physician={doctorsCard} index={index} />
             ))}
           </div>
         ) : (
