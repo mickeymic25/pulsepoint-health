@@ -5,7 +5,7 @@ const Doctors = async () => {
   const doctors = await fetchDoctors();
   return (
     <div className="min-h-screen text-center p-16">
-      <h1 className="text-6xl flex flex-row justify-center p-4">Our Doctors</h1>
+      <h1 className="flex flex-row justify-center">Our Doctors</h1>
 
       <DoctorSearch doctors={doctors} />
     </div>

@@ -13,19 +13,13 @@ import Image from "next/image";
 import React from "react";
 Button;
 
-const DoctorCard = ({ physician, index }) => {
-  const isFemale = physician.gender?.toLowerCase() === "f";
-  const folder = isFemale ? "female" : "male";
-  const totalImages = isFemale ? 5 : 20;
-  const imageNumber = (index % totalImages) + 1;
-  const imageSrc = `/images/doctors/${folder}/${folder}${imageNumber}.jpg`;
-
+const DoctorCard = ({ physician }) => {
   return (
     <>
-      <Card className="flex flex-col text-center p-2 mt-1">
-        <CardHeader>
+      <Card className="flex flex-col text-center p-2 mt-1 justify-between h-full ">
+        <CardHeader className="flex flex-col items-center">
           <Image
-            src={imageSrc}
+            src={physician.imageSrc}
             alt={`${physician.name}, ${
               physician.gender === "F"
                 ? "Female Doctor"
@@ -35,9 +29,9 @@ const DoctorCard = ({ physician, index }) => {
             } `}
             width={200}
             height={200}
-            className="mb-1"
+            className="my-1 rounded-lg"
           />
-          <CardTitle>
+          <CardTitle className="text-center">
             <p>{physician.name}</p>
 
             <p>
@@ -48,14 +42,16 @@ const DoctorCard = ({ physician, index }) => {
                 : " "}
             </p>
           </CardTitle>
-          <CardDescription>{physician.specialties}</CardDescription>
+          <CardDescription className="text-center">
+            {physician.specialties}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <p>{physician.address.line1}</p>
           <p>{physician.address.city}</p>
-          <p>{physician.address.zip}</p>
+          <p>{physician.address.zip.replace(/(.{5})/, "$1 ")}</p>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex justify-center">
           <Button>Book an appointment</Button>
         </CardFooter>
       </Card>

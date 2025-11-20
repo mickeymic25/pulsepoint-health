@@ -75,3 +75,24 @@ export const testimonials = [
     quote: '"The treatments I received at this clinic were effective!" ',
   },
 ];
+
+export const homepageDoctors = [
+  {
+    img: "/images/Dr Steve.jpg",
+    name: "Dr. Steve Jones",
+    speciality: "Internal Medicine",
+    alt: "Dr Steve Jones",
+  },
+  {
+    img: "/images/Dr Michelle.jpg",
+    name: "Dr. Michelle Fuisilli",
+    speciality: "Neurologist",
+    alt: "Dr. Michelle Fuisilli",
+  },
+  {
+    img: "/images/Dr Andrew.jpg",
+    name: "Dr. Andrew Nkele",
+    speciality: "Opthamologist",
+    alt: "Dr.Andrew Nkele",
+  },
+];

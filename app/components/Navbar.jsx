@@ -3,17 +3,25 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
+  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-
+DropdownMenuItem;
 const Navbar = () => {
+  const linkStyles =
+    "hover:border-b-3  hover:border-[#005d8f] transition duration-300 ";
+
   return (
     <>
-      <nav className="flex justify-between w-full z-50 fixed shadow-sm bg-white p-3">
+      <nav className="flex justify-between w-full z-50 fixed shadow-sm bg-white p-3 items-center">
         <div className="p-2">
-          <h1>Logo</h1>
+          <Link href="/" passHref>
+            <img
+              src="/images/pulsepointhealth-high-resolution-logo-transparent.png"
+              className="h-12 w-auto"
+            />
+          </Link>
         </div>
         <div className="flex justify-end md:hidden p-2">
           <DropdownMenu>
@@ -21,23 +29,46 @@ const Navbar = () => {
               <GiHamburgerMenu />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel>Book Appointment</DropdownMenuLabel>
-              <DropdownMenuLabel>Doctors</DropdownMenuLabel>
-              <DropdownMenuLabel>Contact</DropdownMenuLabel>
+              <Link href="/" passHref className={linkStyles}>
+                <DropdownMenuItem>Home</DropdownMenuItem>
+              </Link>
+
+              <Link href="/appointments" passHref className={linkStyles}>
+                <DropdownMenuItem>Book Appointment</DropdownMenuItem>
+              </Link>
+
+              <Link href="/doctors" passHref className={linkStyles}>
+                <DropdownMenuItem>Doctors</DropdownMenuItem>
+              </Link>
+
+              <Link href="/contact" passHref className={linkStyles}>
+                <DropdownMenuItem>Contact</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
 
-        <div className="hidden md:flex md:flex-row justify-end p-2 mr-12">
+        <div className="hidden md:flex md:flex-row justify-end items-center p-2 mr-12">
           <ul className="flex flex-row gap-18">
             <li>
-              <Link href="/appointments">Book Appointment</Link>
+              <Link href="/" passHref className={linkStyles}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/doctors">Doctors</Link>
+              <Link href="/appointments" passHref className={linkStyles}>
+                Book Appointment
+              </Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/doctors" passHref className={linkStyles}>
+                Doctors
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" passHref className={linkStyles}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

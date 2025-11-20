@@ -45,13 +45,13 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #eff6ff;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #005d8f;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -61,7 +61,7 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --input: oklch(92.191% 0.0001 271.152);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -118,5 +118,24 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply text-2xl p-4 md:p-6 md:text-5xl text-primary font-semibold;
+  }
+  h2 {
+    @apply text-xl p-4 md:p-6  md:text-3xl text-primary;
+  }
+  h3 {
+    @apply text-lg pt-2 md:pt-2  md:text-2xl text-primary;
+  }
+  p {
+    @apply p-1 text-center  md:p-1.5  text-base md:text-lg;
+  }
+  :focus-visible {
+    @apply ring-2 ring-primary/50 outline-none;
+  }
+  .circle-list {
+    color: #005d8f;
+    list-style-type: disc;
   }
 }
