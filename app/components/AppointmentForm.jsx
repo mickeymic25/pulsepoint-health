@@ -222,7 +222,9 @@ const AppointmentForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className="m-1" type="submit">
+          Submit
+        </Button>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
@@ -247,6 +249,7 @@ const AppointmentForm = () => {
         </Dialog>
 
         <Button
+          className="m-1"
           variant="destructive"
           size="lg"
           onClick={() => {

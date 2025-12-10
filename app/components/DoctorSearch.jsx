@@ -97,7 +97,7 @@ const DoctorSearch = ({ doctors }) => {
   }, []);
 
   useEffect(() => {
-    console.log({ rawDoctorData });
+    console.log(rawDoctorData);
   }, [rawDoctorData]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -108,31 +108,53 @@ const DoctorSearch = ({ doctors }) => {
   const totalPages = Math.ceil(rawDoctorData.length / doctorsPerPage);
   return (
     <>
-      <section className="flex flex-col  md:flex-row justify-center align-center gap-3.5">
+      <section
+        className="
+  w-full
+  m-3       sm:m-4       md:m-6
+  p-3       sm:p-4       md:p-6
+  flex flex-col md:flex-row justify-center items-center gap-3.5
+"
+      >
         <Popover open={openSpecialty} onOpenChange={setOpenSpecialty}>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
               role="combobox"
               aria-expanded={openSpecialty}
-              className="w-[200px] justify-between"
+              className="min-w-[200px] w-fit justify-between"
             >
-              {filter.specialty || "Select specialty"}
+              {filter.specialty === ""
+                ? "None"
+                : filter.specialty === "all"
+                ? "All"
+                : filter.specialty || "Select specialty"}
               <ChevronDown />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
-            <Command>
+            <Command className="m-1">
               <CommandInput
-                className="h-8 p-5"
+                className="h-8 p-0.5"
                 placeholder="Search specialty"
               />
               <CommandList>
                 <CommandEmpty>No specialty found.</CommandEmpty>
                 <CommandGroup>
                   <CommandItem
+                    value="none"
                     onSelect={() => {
-                      setFilter({ ...filter });
+                      setFilter({ ...filter, specialty: "" });
+                      setOpenSpecialty(false);
+                      console.log(setFilter);
+                    }}
+                  >
+                    None
+                  </CommandItem>
+                  <CommandItem
+                    value="all"
+                    onSelect={() => {
+                      setFilter({ ...filter, specialty: "all" });
                       setOpenSpecialty(false);
                     }}
                   >
@@ -162,18 +184,43 @@ const DoctorSearch = ({ doctors }) => {
               variant="outline"
               role="combobox"
               aria-expanded={openCity}
-              className="w-[200px] justify-between"
+              className="min-w-[200px] w-fit justify-between"
             >
-              {filter.city || "Select city"}
+              {filter.city === ""
+                ? "None"
+                : filter.city === "all"
+                ? "All"
+                : filter.city || "Select city"}
               <ChevronDown />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
-            <Command>
-              <CommandInput className="h-9" placeholder="Search specialty" />
+            <Command className="m-1">
+              <CommandInput
+                className="h-8 p-0.5"
+                placeholder="Search specialty"
+              />
               <CommandList>
                 <CommandEmpty>No city found.</CommandEmpty>
                 <CommandGroup>
+                  <CommandItem
+                    value="none"
+                    onSelect={() => {
+                      setFilter({ ...filter, city: "" });
+                      setOpenCity(false);
+                    }}
+                  >
+                    None
+                  </CommandItem>
+                  <CommandItem
+                    value="all"
+                    onSelect={() => {
+                      setFilter({ ...filter, city: "all" });
+                      setOpenCity(false);
+                    }}
+                  >
+                    All
+                  </CommandItem>
                   {parsedDoctorsData.map((doc, index) => (
                     <CommandItem
                       key={index}
@@ -196,9 +243,10 @@ const DoctorSearch = ({ doctors }) => {
           onValueChange={(gender) => setFilter({ ...filter, gender: gender })}
         >
           <SelectTrigger className="w-40">
-            <SelectValue placeholder="Choose gender" />
+            <SelectValue className="italic" placeholder="Choose gender" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="all">All</SelectItem>
             <SelectItem value="F">Female</SelectItem>
             <SelectItem value="M">Male</SelectItem>
           </SelectContent>
@@ -207,17 +255,18 @@ const DoctorSearch = ({ doctors }) => {
         <Button
           onClick={() => {
             const filteredDoctors = parsedDoctorsData.filter((doc) => {
-              const filteredSpecialty = filter.specialty
-                ? doc.specialties.includes(filter.specialty)
-                : true;
+              const filteredSpecialty =
+                filter.specialty === "" || filter.specialty === "all"
+                  ? true
+                  : doc.specialties.includes(filter.specialty);
 
-              const filteredCity = filter.city
-                ? doc.address.city.includes(filter.city)
-                : true;
+              const filteredCity =
+                filter.city === "" || filter.city === "all"
+                  ? true
+                  : doc.address.city === filter.city;
 
-              const filteredGender = filter.gender
-                ? doc.gender.includes(filter.gender)
-                : true;
+              const filteredGender =
+                filter.gender === "all" ? true : doc.gender === filter.gender;
 
               return filteredSpecialty && filteredCity && filteredGender;
             });

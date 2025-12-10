@@ -131,6 +131,9 @@
   p {
     @apply p-1 text-center  md:p-1.5  text-base md:text-lg;
   }
+  li {
+    @apply text-left list-inside;
+  }
   :focus-visible {
     @apply ring-2 ring-primary/50 outline-none;
   }
@@ -138,4 +141,9 @@
     color: #005d8f;
     list-style-type: disc;
   }
+}
+[data-variant="secondary"] {
+  --tw-border-opacity: 1;
+  border-color: #005d8f !important;
+  color: #005d8f !important;
 }

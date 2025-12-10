@@ -4,7 +4,7 @@ import ContactForm from "../components/ContactForm";
 const Contact = () => {
   return (
     <div className="min-h-screen text-center p-16">
-      <h1 className="text-6xl flex flex-row justify-center p-4">Contact Us</h1>
+      <h1 className="flex flex-row justify-center m-8 ">Contact Us</h1>
       <ContactForm />
     </div>
   );

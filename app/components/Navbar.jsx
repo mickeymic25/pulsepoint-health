@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="p-2">
           <Link href="/" passHref>
             <img
-              src="/images/pulsepointhealth-high-resolution-logo-transparent.png"
+              src="/images/pph-nav-logo-transparent.png"
               className="h-12 w-auto"
             />
           </Link>
