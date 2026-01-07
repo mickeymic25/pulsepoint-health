@@ -9,8 +9,7 @@ import {
 import Link from "next/link";
 DropdownMenuItem;
 const Navbar = () => {
-  const linkStyles =
-    "hover:border-b-3  hover:border-[#005d8f] transition duration-300 ";
+  const linkStyles = "hover:border-b-3  hover:border-[#005d8f] duration-300 ";
 
   return (
     <>
@@ -19,7 +18,7 @@ const Navbar = () => {
           <Link href="/" passHref>
             <img
               src="/images/pph-nav-logo-transparent.png"
-              className="h-12 w-auto"
+              className="h-9 md:h-12 w-auto"
             />
           </Link>
         </div>
@@ -29,21 +28,21 @@ const Navbar = () => {
               <GiHamburgerMenu />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <Link href="/" passHref className={linkStyles}>
-                <DropdownMenuItem>Home</DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem>
+                <Link href="/">Home</Link>
+              </DropdownMenuItem>
 
-              <Link href="/appointments" passHref className={linkStyles}>
-                <DropdownMenuItem>Book Appointment</DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem>
+                <Link href="/appointments">Book Appointment</Link>
+              </DropdownMenuItem>
 
-              <Link href="/doctors" passHref className={linkStyles}>
-                <DropdownMenuItem>Doctors</DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem>
+                <Link href="/doctors">Doctors</Link>
+              </DropdownMenuItem>
 
-              <Link href="/contact" passHref className={linkStyles}>
-                <DropdownMenuItem>Contact</DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem>
+                <Link href="/contact">Contact</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

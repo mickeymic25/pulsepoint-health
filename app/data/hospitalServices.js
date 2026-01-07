@@ -56,20 +56,20 @@ export const healthPartners = [
 
 export const testimonials = [
   {
-    person: "/images/testimonial-1.png",
+    person: "/images/andrea-andy.png",
     name: "Andrea Andy, 27",
     alt: "Andrea Andy headshot",
     quote:
       '"I had a great experience at this clinic. The doctors were knowledgable and caring." ',
   },
   {
-    person: "/images/testimonial-2.png",
+    person: "/images/rick-reynolds.png",
     name: "Rick Reynolds, 58",
     alt: "Rick Reynolds headshot",
     quote: '"The clinic provided a comfortable and welcoming atmosphere." ',
   },
   {
-    person: "/images/testimonial-3.png",
+    person: "/images/lily-allen.png",
     name: "Lilly Allen, 40",
     alt: "Lilly Allen headshot",
     quote: '"The treatments I received at this clinic were effective!" ',

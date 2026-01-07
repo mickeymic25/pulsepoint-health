@@ -36,16 +36,18 @@ const ContactForm = () => {
     setDialogOpen(true);
   };
   return (
-    <Card className="flex flex-col md:flex-row p-0 ">
-      <img
-        className=" w-full h-full"
-        src="/images/Dr Michelle.jpg"
-        alt="Dr.Michelle Fuisilli"
-      />
+    <Card className="grid grid-cols-1 md:grid-cols-2 overflow-hidden p-0 ">
+      <div className="h-64 md:h-auto">
+        <img
+          className=" w-full h-full object-cover"
+          src="/images/Dr Michelle.jpg"
+          alt="Dr.Michelle Fuisilli"
+        />
+      </div>
 
       <Form {...form}>
         <form
-          className="w-full md: p-5 flex flex-col gap-2 md:m-8"
+          className="w-full  flex flex-col gap-2 p-6 sm:p-8 lg:p-10"
           onSubmit={form.handleSubmit(onContactSubmission)}
         >
           <FormField
@@ -61,11 +63,16 @@ const ContactForm = () => {
             }}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel htmlFor="name">
                   <h3>Name</h3>
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Your name" />
+                  <Input
+                    {...field}
+                    id="name"
+                    placeholder="Your name"
+                    autoComplete="name"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -83,11 +90,17 @@ const ContactForm = () => {
             }}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel htmlFor="email">
                   <h3>Email</h3>
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" placeholder="Your email" />
+                  <Input
+                    {...field}
+                    id="email"
+                    type="email"
+                    placeholder="Your email"
+                    autoComplete="email"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,11 +118,17 @@ const ContactForm = () => {
             }}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel htmlFor="number">
                   <h3>Phone Number</h3>
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} type="tel" placeholder="+44" />
+                  <Input
+                    {...field}
+                    id="number"
+                    type="tel"
+                    placeholder="+44"
+                    autoComplete="tel"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -127,11 +146,16 @@ const ContactForm = () => {
             }}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel htmlFor="message">
                   <h3>Message</h3>
                 </FormLabel>
                 <FormControl>
-                  <Textarea {...field} placeholder="message" />
+                  <Textarea
+                    {...field}
+                    id="message"
+                    placeholder="message"
+                    autoComplete="off"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

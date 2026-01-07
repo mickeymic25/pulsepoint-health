@@ -55,7 +55,7 @@ const AppointmentForm = () => {
   return (
     <Form {...form}>
       <form
-        className="w-full p-1.5 flex flex-col gap-2 md:m-8"
+        className="w-full p-1.5 flex flex-col gap-2 "
         onSubmit={form.handleSubmit(onAppointmentSubmission)}
       >
         <FormField
@@ -68,11 +68,17 @@ const AppointmentForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel htmlFor="name">
                 <h3>Name</h3>
               </FormLabel>
               <FormControl>
-                <Input {...field} placeholder="Your name" />
+                <Input
+                  {...field}
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  autoComplete="name"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -90,11 +96,17 @@ const AppointmentForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel htmlFor="email">
                 <h3>Email</h3>
               </FormLabel>
               <FormControl>
-                <Input {...field} type="email" placeholder="Your email" />
+                <Input
+                  {...field}
+                  id="email"
+                  type="email"
+                  placeholder="Your email"
+                  autoComplete="email"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -112,11 +124,17 @@ const AppointmentForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel htmlFor="number">
                 <h3>Phone Number</h3>
               </FormLabel>
               <FormControl>
-                <Input {...field} type="tel" placeholder="+44" />
+                <Input
+                  {...field}
+                  id="number"
+                  type="tel"
+                  placeholder="+44"
+                  autoComplete="number"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -133,7 +151,7 @@ const AppointmentForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel htmlFor="date-picker">
                 <h3>Date</h3>
               </FormLabel>
               <FormControl>
@@ -141,7 +159,7 @@ const AppointmentForm = () => {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      id="date"
+                      id="date-picker"
                       className="w-48
                       justify-between font-normal"
                     >
@@ -149,10 +167,10 @@ const AppointmentForm = () => {
                         ? field.value.toLocaleDateString()
                         : "Select a Date"}
 
-                      <ChevronDown />
+                      <ChevronDown aria-hidden="true" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent>
+                  <PopoverContent role="dialog" aria-label="Choose a date">
                     <Calendar
                       mode="single"
                       selected={field.value}
@@ -166,6 +184,7 @@ const AppointmentForm = () => {
                   </PopoverContent>
                 </Popover>
               </FormControl>
+
               <FormMessage />
             </FormItem>
           )}
@@ -182,11 +201,16 @@ const AppointmentForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel htmlFor="message">
                 <h3>Message</h3>
               </FormLabel>
               <FormControl>
-                <Textarea {...field} placeholder="message" />
+                <Textarea
+                  {...field}
+                  id="message"
+                  placeholder="message"
+                  autoComplete="off"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -197,24 +221,29 @@ const AppointmentForm = () => {
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel id="time-label">
                 <h3 className="text-left">
                   What is your prefered appointment time?
                 </h3>
               </FormLabel>
               <FormControl>
-                <RadioGroup value={field.value} onValueChange={field.onChange}>
+                <RadioGroup
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  role="radiogroup"
+                  aria-labelledby="time-label"
+                >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem id="10am" value="10am" />
-                    <Label htmlFor="10am">10am</Label>
+                    <RadioGroupItem id="time-10am" value="10am" />
+                    <Label htmlFor="time-10am">10am</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem id="2pm" value="2pm" />
-                    <Label htmlFor="2pm">2pm</Label>
+                    <RadioGroupItem id="time-2pm" value="2pm" />
+                    <Label htmlFor="time-2pm">2pm</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem id="6pm" value="6pm" />
-                    <Label htmlFor="6pm">6pm</Label>
+                    <RadioGroupItem id="time-6pm" value="6pm" />
+                    <Label htmlFor="time-6pm">6pm</Label>
                   </div>
                 </RadioGroup>
               </FormControl>

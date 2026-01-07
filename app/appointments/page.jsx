@@ -11,14 +11,17 @@ const Appointments = () => {
         </h1>
       </section>
 
-      <Card className="flex flex-col md:flex-row p-0 ">
-        <img
-          className=" w-full md:w-[860px] md:h-auto"
-          src="/images/Dr Andrew.jpg"
-          alt="Dr.Andrew Nkele"
-        />
-
-        <AppointmentForm />
+      <Card className="grid grid-cols-1 md:grid-cols-2 overflow-hidden p-0">
+        <div className="h-64 md:h-auto">
+          <img
+            src="/images/Dr Andrew.jpg"
+            alt="Dr. Andrew Nkele"
+            className="h-full w-full object-cover "
+          />
+        </div>
+        <div className="p-6 sm:p-8 lg:p-10">
+          <AppointmentForm />
+        </div>
       </Card>
     </div>
   );

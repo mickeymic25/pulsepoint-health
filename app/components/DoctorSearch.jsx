@@ -241,9 +241,10 @@ const DoctorSearch = ({ doctors }) => {
 
         <Select
           onValueChange={(gender) => setFilter({ ...filter, gender: gender })}
+          className="font-medium"
         >
           <SelectTrigger className="w-40">
-            <SelectValue className="italic" placeholder="Choose gender" />
+            <SelectValue className="font-medium" placeholder="Choose gender" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All</SelectItem>

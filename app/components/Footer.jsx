@@ -14,11 +14,8 @@ const Footer = () => {
           />
         </Link>
       </div>
-      <div
-        className=" p-2 flex flex-col text-center md:flex-row justify-center items-center
-      "
-      >
-        <ul className=" md:gap-18 text-white ">
+      <div className=" p-2 flex flex-col text-center md:flex-row justify-center items-center md:mt-10">
+        <ul className="flex flex-col text-center md:flex-row justify-center items-center md:gap-18 text-white ">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -33,7 +30,11 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className=" text-white p-1">Copyright PulsePoint Health 2025</div>
+      <div className=" text-white p-1">
+        {" "}
+        <span className="inline-block size-7  #ffffff">©</span>
+        PulsePoint Health 2025
+      </div>
     </div>
   );
 };
