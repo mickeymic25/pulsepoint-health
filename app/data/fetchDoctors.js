@@ -4,8 +4,7 @@ export default async function fetchDoctors() {
       "https://doctorsapi.com/api/doctors?limit=25",
       {
         headers: { "api-key": process.env.DOCTORS_API_KEY },
-        next: { revalidate: 3600 * 49 },
-      }
+      },
     );
 
     if (!response.ok) {
