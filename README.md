@@ -70,8 +70,7 @@ pulsepoint-health/
 ├── tailwind.config.js
 ├── package.json
 ├── package-lock.json
-├── README.md
-└── vercel.json
+└── README.md
 ```
 🧑‍💻 Getting Started (Local Setup)
 
