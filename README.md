@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## PulsePoint Health 🩺
 
-## Getting Started
+PulsePoint Health is a doctor appointment booking platform that allows users to find and book doctors across the United States.  
+The app integrates with the Doctors API to filter doctors by location, specialty, and gender.
 
-First, run the development server:
+ Live site: https://pulsepoint-health-psi.vercel.app/  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+## 🚀 Features
+
+- Browse doctors across the United States  
+- Filter doctors by:
+  - Location  
+  - Medical specialty  
+  - Gender  
+- Book doctor appointments through a user form  
+- Fully responsive design (mobile, tablet, desktop)  
+- Fast performance with Next.js  
+- Styled with Tailwind CSS  
+- Deployed on Vercel  
+
+## 🛠 Tech Stack
+
+- Next.js  
+- React  
+- Tailwind CSS  
+- Doctors API (https://doctorsapi.com)  
+- Vercel  
+
+## 📌 About the Project
+
+PulsePoint Health is a frontend appointment booking system designed to simulate a real healthcare platform.  
+Users can search for doctors and schedule appointments using filters such as location, specialty, and gender.
+
+This project demonstrates:
+- API integration and data fetching  
+- Filtering and dynamic UI rendering  
+- React state management and controlled forms  
+- Component-based architecture  
+- Responsive UI/UX design  
+- Next.js routing and deployment  
+
+
+
+## ✨ API Integration
+
+This project uses the **Doctors API** to retrieve doctor data.
+
+### Filters supported:
+- **Location** (US-based doctors)  
+- **Specialty** (e.g. cardiology, dermatology, pediatrics)  
+- **Gender** (male, female, etc.)  
+
+The API is consumed on the frontend to dynamically display and filter doctors in real time.
+
+## 📂 Project Structure
+
+```
+pulsepoint-health/
+├── public/
+│   └── assets/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   ├── utils/
+│   └── App.jsx
+├── .gitignore
+├── next.config.js
+├── tailwind.config.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── vercel.json
+```
+🧑‍💻 Getting Started (Local Setup)
+
+Clone the repository
+```
+bash
+git clone https://github.com/mickeymic25/pulsepoint-health.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project folder
+```
+bash
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+cd pulsepoint-health
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies
+```
+bash
 
-## Learn More
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run the development server
+```
+bash
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open in your browser:
+```
+http://localhost:3000
+```
 
-## Deploy on Vercel
+## 📦 Build for Production
+```
+bash
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Start the production server:
+```
+bash
+
+npm start
+```
+
+## ☁️ Deployment
+
+This project is deployed using Vercel.
+
+
+## 🧠 Learning Outcomes
+
+- Working with external REST APIs in Next.js
+- Building filtering logic in React
+- Managing form state and user input
+- Component-based frontend architecture
+- Responsive design with Tailwind CSS
+- Deploying production apps with Vercel
+
+
+## 📜 Disclaimer
+
+This project is for educational and portfolio purposes only and does not provide real medical services.
