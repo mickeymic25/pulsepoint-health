@@ -105,7 +105,7 @@ export default function Home() {
               alt="female doctor"
             />
           </div>
-          <div className="h-1/2 w-full pt-2 py-2 md:py-4 md:w-1/2 md:h-full flex flex-col justify-between  ">
+          <div className="h-1/2 w-full p-4 md:py-4 md:w-1/2 md:h-full flex flex-col justify-between  ">
             <motion.p
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -151,7 +151,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className=" text-right italic font-bold p-2 md:p-10 "
+              className=" text-left italic font-bold py-2.5 md:p-10 "
             >
               "We are committed to serving people with patient-centered care and
               to deliver outstanding healthcare for better lives." <br />
