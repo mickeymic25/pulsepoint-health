@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 DropdownMenuItem;
 const Navbar = () => {
-  const linkStyles = "hover:border-b-3  hover:border-[#005d8f] duration-300 ";
+  const linkStyles = "hover:border-b-3  hover:border-[#005d8f] duration-100 ";
 
   return (
     <>

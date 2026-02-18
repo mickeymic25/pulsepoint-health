@@ -146,8 +146,11 @@ const AppointmentForm = () => {
           rules={{
             required: "Please select a date",
             validate: (value) =>
-              (value && value.toDateString() >= new Date().toDateString()) ||
-              "Date must be today or later",
+              value &&
+              new Date(value).setHours(0, 0, 0, 0) >=
+                new Date().setHours(0, 0, 0, 0)
+                ? true
+                : "Date must be today or later",
           }}
           render={({ field }) => (
             <FormItem>
