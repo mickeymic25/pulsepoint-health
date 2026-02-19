@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="  flex flex-col text-center max-w-screen lg:max-xl:h-screen">
+    <div className="  flex flex-col text-center max-w-screen ">
       <section className="relative w-full h-[380px] md:h-screen overflow-hidden pt-20 md:pt-28">
         <Image
           src="/images/hero-banner-image.jpg"
@@ -22,7 +22,7 @@ export default function Home() {
           alt="Hero Image"
           priority
         />
-        {/*MOBILE OVERLAY AND LOGO*/}
+
         <div className="absolute inset-0 bg-black/40 md:hidden"></div>
 
         <motion.div
@@ -52,7 +52,6 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/*DESKTOP LOGO*/}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -167,7 +166,7 @@ export default function Home() {
           h-auto mb-10 md:mb-32"
         />
         <h1>Our Services</h1>
-        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 w-full max-w-6xl">
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 w-full max-w-6xl items-strech">
           {hospitalServices.map((service, index) => {
             return (
               <motion.div
@@ -238,7 +237,7 @@ export default function Home() {
           <Button variant="secondary">Find a Doctor</Button>
         </div>
       </section>
-      {/*Health Partners*/}
+
       <section className="m-5 min-h-screen flex flex-col items-center justify-center">
         <img
           src="/images/main-pulse-image-logo-transparent.png "
@@ -326,7 +325,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/*Testimonials*/}
+
       <section className="m-5 md:m-40 h-auto w-auto flex flex-col items-center ">
         <img
           src="/images/main-pulse-image-logo-transparent.png "
@@ -334,7 +333,7 @@ export default function Home() {
           h-auto mb-10 md:mb-20"
         />
         <h1 className=" flex flex-row justify-center ">Testimonials</h1>
-        <div className=" flex flex-col gap-5 md:flex md:flex-row justify-between">
+        <div className=" flex flex-col gap-5 md:flex md:flex-row justify-between items-stretch">
           {testimonials.map((testimonial, index) => {
             return (
               <motion.div
@@ -343,7 +342,7 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
                 key={index}
               >
-                <Card className="flex flex-col text-center p-2 mt-1 w-auto h-auto">
+                <Card className="flex flex-col text-center p-2 mt-1 w-auto h-full">
                   <CardHeader className="flex flex-col items-center">
                     <Image
                       src={testimonial.person}
