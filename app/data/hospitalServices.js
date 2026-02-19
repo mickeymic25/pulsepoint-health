@@ -27,8 +27,7 @@ export const hospitalServices = [
   {
     serviceicon: "/images/laboratory.png",
     title: "Lab Testing",
-    description:
-      "Fast, accurate blood and diagnostic tests completed within 2 hours.",
+    description: "Accurate blood and diagnostic tests within 2 hours.",
   },
 ];
 
